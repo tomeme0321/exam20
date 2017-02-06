@@ -5,10 +5,30 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
+  <header>
+    <ul>
+      <li><a href="#">Achieve</a></li>
+      <li><a href="#">トップページ</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+      <% if user_signed_in? %>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+        <li><%= link_to 'ログイン', new_user_session_path  %></li>
+        <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+      <% end %>
+    </ul>
+  </header>
+
 <%= yield %>
+
+<footer>
+  <p>Fakebook Inc.</p>
+  <p>© 2015-2016 Copyright Keisuke.</p>
+</footer>
 
 </body>
 </html>

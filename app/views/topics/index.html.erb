@@ -1,11 +1,16 @@
-<p><%= notice %></p>
-<h1>Topics一覧</h1>
-<%= link_to "投稿する", new_topic_path %>
-<br>
-<br>
-<% @topics.reverse.each do |topic| %>
- <p>内容：<%= topic.content %></p>
- <%= link_to "修正する", edit_topic_path(topic.id), data: { confirm: "本当に編集していいですか？" } %>
- <%= link_to "削除", topic_path(topic.id), method: :delete, data: { confirm: '本当に削除していいですか？'}  %>
-
- <% end %>
+<div class="container">
+ <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+  <p><%= notice %></p>
+  <h1>Topics一覧</h1>
+  <%= link_to "投稿する", new_topic_path, class: 'btn btn-default'%>
+  <br>
+  <br>
+  <% @topics.reverse.each do |topic| %>
+  <div class="row">
+   <p>内容：<%= topic.content %></p>
+   <%= link_to "修正する", edit_topic_path(topic.id), data: { confirm: "本当に編集していいですか？"}, class: 'btn btn-default btn-sm btn-success'  %>
+   <%= link_to "削除", topic_path(topic.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger'  %>
+  </div>
+   <% end %>
+ </div>
+</div>

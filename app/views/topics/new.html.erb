@@ -1,21 +1,20 @@
-<p id="notice"><%= notice %></p>
-  <%= form_for(@topic) do |f| %>
- <% if @topic.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= @topic.errors.count %>件のエラーがあります。</h2>
-    <ul>
-      <% @topic.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
- <%= f.label :content %>
- <%= f.text_field :content %>
- <br>
- <br>
- <%= f.submit "投稿する"%>
- <% end %>
-<br>
-<%= link_to "一覧に戻る", topics_path %>
+<div class="container">
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+      <p id="notice"><%= notice %></p>
+    <%= form_for(@topic, url:confirm_topics_path) do |f| %>
+   <% if @topic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @topic.errors.count %>件のエラーがあります。</h2>
+  
+    </div>
+  <% end %>
+   <%= f.label :content %>
+   <%= f.text_field :content, class: 'form-control' %>
+   <br>
+   <br>
+   <%= f.submit "投稿する", class: 'btn btn-primary btn-block'%>
+   <% end %>
+  <br>
+  <%= link_to "一覧に戻る", topics_path %>
+ </div>
+</div>

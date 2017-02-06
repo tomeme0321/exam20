@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  get 'contacts' => 'conatcts#index'
-  get 'topics' => "topics#index"
-  resources :topics, only: [:index, :new, :create, :edit, :update, :destroy]
+  devise_for :users
+  #get 'contacts' => 'conatcts#index'
+  #get 'topics' => "topics#index"
+  resources :topics, only: [:index, :new, :create, :edit, :update, :destroy] do
+    collection do
+      post :confirm
+    end
+  end
   resources :contacts, only: [:index, :new, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -57,4 +62,8 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  root 'top#index'
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end

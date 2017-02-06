@@ -1,10 +1,16 @@
 class TopicsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @topics = Topic.all
   end
 
   def new
-    @topic = Topic.new
+    if params[:back]
+     @topic = Topic.new(topics_params)
+    else
+     @topic = Topic.new
+    end
   end
 
   def create
@@ -34,6 +40,11 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     @topic.destroy
     redirect_to topics_path, notice: "削除しました"
+  end
+
+  def confirm
+    @topic = Topic.new(topics_params)
+    render :new if @topic.invalid?
   end
 
   private
