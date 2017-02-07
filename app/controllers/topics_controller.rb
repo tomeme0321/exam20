@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @topics = Topic.all
   end
@@ -17,6 +17,7 @@ class TopicsController < ApplicationController
     @topic = Topic.create(topics_params)
     if @topic.save
      redirect_to topics_path, notice: "投稿完了しました"
+     NoticeMailer.sendmail_topic(@topic).deliver
     else
      render 'new'
     end
