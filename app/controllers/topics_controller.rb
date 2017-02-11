@@ -5,6 +5,11 @@ class TopicsController < ApplicationController
     @topics = Topic.all
   end
 
+  def show
+    @comment = @topic.comments.build
+    @comments = @topic.comments
+  end
+
   def new
     if params[:back]
      @topic = Topic.new(topics_params)

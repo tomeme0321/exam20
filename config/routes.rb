@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   }
   #get 'contacts' => 'conatcts#index'
   #get 'topics' => "topics#index"
-  resources :topics, only: [:index, :new, :create, :edit, :update, :destroy] do
+  resources :topics do
+    resources :comments
+
     collection do
       post :confirm
     end

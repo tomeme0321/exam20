@@ -30,6 +30,11 @@
         <%= f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "現在のパスワード" %>
         <i>(変更するには現在のパスワードが必須です)</i>
       </div>
+      <div>
+        <%= profile_img(@user) if profile_img(@user) %>
+        <%= f.file_field :avatar %>
+        <%= f.hidden_field :avatar_cache %>
+      </div>
 
       <div class="actions">
         <%= f.submit "Update", class: "btn btn-primary btn-block" %>
