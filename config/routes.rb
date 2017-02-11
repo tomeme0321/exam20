@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
+devise_for :users, controllers: {
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
+  resources :users, only:[:index, :show]
+  resources :relationships, only: [:create, :destroy]
   resources :contacts, only: [:index, :new, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

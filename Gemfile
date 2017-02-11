@@ -48,6 +48,8 @@ group :development do
   gem 'omniauth'
   gem 'omniauth-twitter'
   gem 'omniauth-facebook'
+  gem 'pry-rails'
+  gem 'better_errors'
 end
 
 gem 'rails_12factor', group: :production

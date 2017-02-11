@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>詳細画面</h2>
+  <h3>Following Users</h3>
+  <% @user.followed_users.each do |user| %>
+    <%= user.name %>
+    <br>
+    <%= profile_img(user) %>
+   <% end %>
+  <br>
+  <br>
+  <h3>followers</h3>
+   <% @user.followers.each do |user| %>
+   <%= user.name %>
+   <br>
+   <%= profile_img(user) %>
+   <% end %>
+ </div>
