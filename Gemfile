@@ -45,13 +45,13 @@ group :development do
   gem 'spring'
   gem 'letter_opener_web'
   gem 'dotenv-rails'
-  gem 'omniauth'
-  gem 'omniauth-twitter'
-  gem 'omniauth-facebook'
   gem 'pry-rails'
   gem 'better_errors'
 end
 
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 gem 'rails_12factor', group: :production
 gem 'devise'
 gem 'twitter-bootstrap-rails'

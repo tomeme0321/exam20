@@ -1,4 +1,5 @@
 <div class="container">
+ <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
   <h2>詳細画面</h2>
   <h3>Following Users</h3>
   <% @user.followed_users.each do |user| %>
@@ -15,3 +16,4 @@
    <%= profile_img(user) %>
    <% end %>
  </div>
+</div>
