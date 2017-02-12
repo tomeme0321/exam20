@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+    <h2>編集する</h2>
+    <br>
+     <%= form_for(@comment, url: topic_comment_path(@comment.topic, @comment)) do |f| %>
+     <br>
+     <%= f.text_field :content %>
+     <br>
+     <br>
+     <%= f.submit '更新する', class: 'btn btn-default btn-sm btn-warning'%>
+     <% end %>
+  </div>
+</div>
