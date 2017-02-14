@@ -6,6 +6,7 @@ class TopicsController < ApplicationController
   end
 
   def show
+    Notification.find(params[:notification_id]).update(read: true) if params[:notification_id]
     @topic = Topic.find(params[:id])
     @comment = @topic.comments.build
     @comments = @topic.comments

@@ -1,15 +1,15 @@
 <div class="container">
-  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
-  <h2>ユーザー一覧</h2>
+  <h2>ユーザー</h2>
   <% @users.each do |user| %>
-      <div class="container-child col-md-2 col-sm-4 col-xs-6 ">
-        <%= link_to user_path(user) do %>
-        <%= profile_img(user) %>
-        <br>
-        <%= user.name %>
-        <% end %>
-        <%= render 'follow_form', user: user %>
-      </div>
+  <div class="container-child col-md-2 col-sm-4 col-xs-6 ">
+    <%= link_to user_path(user) do %>
+    <%= profile_img(user) %>
+    <br>
+    <strong><%= user.name %></strong>
+    <% end %>
+    <br>
+    <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
+    <%= render 'follow_form', user: user %>
+  </div>
   <% end %>
-　</div>
 </div>

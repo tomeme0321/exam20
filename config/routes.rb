@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
+
+  get 'notifications/index'
+
 devise_for :users, controllers: {
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
   #get 'contacts' => 'conatcts#index'
   #get 'topics' => "topics#index"
+  resources :conversations do
+    resources :messages
+  end
+
   resources :topics do
     resources :comments
 
