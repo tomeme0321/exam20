@@ -3,7 +3,9 @@
     <h3>この内容で投稿する</h3>
     <%= form_for(@topic) do |f| %>
     <%= f.hidden_field :content %>
+    <%= f.hidden_field :image_cache %>
     <p><%= @topic.content %></p>
+      <p><%= image_tag @topic.image %></p>
      <%= f.submit "投稿する", class: 'btn btn-primary btn-block'%>
      <% end %>
      <br>

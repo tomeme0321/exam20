@@ -76,7 +76,7 @@ devise_for :users, controllers: {
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  root 'top#index'
+  root 'topics#index'
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end

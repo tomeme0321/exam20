@@ -12,6 +12,7 @@
       <p><%= topic.user.name %>が投稿しました。</p>
     <% end %>
     <p><%= topic.content %></p>
+    <p><%= image_tag topic.image %></p>
    <%= link_to "修正する", edit_topic_path(topic.id), data: { confirm: "本当に編集していいですか？"}, class: 'btn btn-default btn-sm btn-success'  %>
    <%= link_to "削除", topic_path(topic.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger'  %>
   </div>
